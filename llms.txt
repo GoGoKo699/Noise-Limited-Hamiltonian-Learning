@@ -3,10 +3,27 @@
 This repository develops a constructive local Hamiltonian-learning guarantee under unknown fixed state-preparation and measurement noise, and a matching worst-case physical ambiguity near a dissipative positivity boundary.
 
 ## Start here
+
 - README.md: scientific question, principal guarantee, resources, reproduction and scope.
 - science/README.md: ordered proof and interpretation routes.
+- learning/README.md: the single educational anchor and the common learning route.
+
+## Reading routes
+
+- Story: README.md, then science/interpretation.md and science/model.md.
+- Study: learning/rivas_huelga_bridge.md, then the 30 understanding targets in learning/milestones.md and their linked scientific sources.
+- Theorem and constructive proof: science/model.md, science/estimator.md, science/local_reconstruction.md, science/resources.md.
+- Information-theoretic limit: science/model.md and science/lower_bound.md.
+- Reproduction: verification/README.md, verification/run_all.py, and verification/expected/results.json. The optional figure generator is verification/plot_results.py.
+
+## Educational anchor
+
+Ángel Rivas and Susana F. Huelga, Open Quantum Systems: An Introduction, first edition (2012), is the sole educational anchor. The bridge maps the published chapters to the author preprint arXiv:1104.5242v2: preprint sections 2–7 correspond to published chapters 1–6. Read the exact version-specific pointers before assigning a section. The book supplies open-system foundations; the research literature and canonical proof pages supply the learning and ambiguity results.
 
 ## Questions and authoritative sources
+
+- How do channel foundations connect to this inverse problem? learning/rivas_huelga_bridge.md.
+- What should a reader understand, and in what dependency order? learning/milestones.md.
 - What exactly is trusted, unknown and estimated? science/model.md.
 - What does the ordered noise scale Delta_C mean? science/model.md, Section 3.
 - How do reciprocal experiments cancel separate gains? science/estimator.md, Sections 1–3.
@@ -20,6 +37,7 @@ This repository develops a constructive local Hamiltonian-learning guarantee und
 - How can the finite checks and figure be reproduced? verification/README.md.
 
 ## Essential distinctions
+
 The Hamiltonian and Kossakowski matrix use the canonical traceless-Pauli convention. Delta_C sums geometric means over ordered structurally allowed pairs. Its zero condition is sufficient, not a complete boundary classification. The achievable rate is uniform; matching lower sharpness is worst-case over a multi-qubit family, not a claim about every noise pattern. Single-qubit coefficients are already universally learnable in the cited framework. The statistical sample count is an upper bound. The error inequality uses true diagonal rates and is not an empirical confidence-radius theorem. A square root in a weak diagonal rate is not square-root amplification relative to the full dissipator perturbation.
 
 The model allows trusted product-unitary controls, native evolution and final noisy readout, with fixed positive local visibilities. Added calibrated instruments may alter its ambiguity. Finite numerical checks corroborate explicit formulas and sampling behavior; the topic pages contain the proofs of general statements.

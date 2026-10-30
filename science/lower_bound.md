@@ -23,11 +23,12 @@ The generator convention is
 
 Put diagonal rate $`\Gamma`$ on $`IX,IY,XI,YI`$ and diagonal rate $`\eta`$ on $`ZY,ZX,YZ,XZ`$. All other diagonal entries vanish. The only nonzero offdiagonal entries, together with their symmetric partners, are
 
+**(L1)**
+
 ```math
 \alpha_{IX,ZY}=\alpha_{XI,YZ}=-\frac c2,
 \qquad
 \alpha_{IY,ZX}=\alpha_{YI,XZ}=\frac c2.
-\tag{L1}
 ```
 
 Here $`c`$ is real. After permuting its indices, the nonzero part of the Kossakowski matrix is a direct sum of four matrices of the form
@@ -41,19 +42,21 @@ Here $`c`$ is real. After permuting its indices, the nonzero part of the Kossako
 
 Consequently, for $`\Gamma,\eta\ge0`$,
 
+**(L2)**
+
 ```math
 \alpha\succeq0
 \quad\Longleftrightarrow\quad
 |c|\le r,
 \qquad r:=2\sqrt{\Gamma\eta}.
-\tag{L2}
 ```
 
 This is an exact physicality condition. In the ordered convention of the model, the target $`C=ZZ`$ has
 
+**(L3)**
+
 ```math
 \Delta_{ZZ}=8\sqrt{\Gamma\eta}=4r.
-\tag{L3}
 ```
 
 There are four nonzero unordered diagonal-rate pairs whose projective product is $`ZZ`$, and the sum defining $`\Delta_{ZZ}`$ counts both orders. The value depends on the diagonal rates, even when some allowed offdiagonal entries vanish.
@@ -69,7 +72,9 @@ For each row in the following table choose the indicated signed operator $`Q=-i(
 | $`XI`$ | $`YZ`$ |
 | $`YI`$ | $`-XZ`$ |
 
-With Pauli transfer convention $`T_{A,B}=\operatorname{Tr}[A\mathcal L(B)]/4`$, each ordered basis $`(P,Q)`$ has the block
+With Pauli transfer convention $`T_{A,B}=\mathrm{Tr}[A\mathcal L(B)]/4`$, each ordered basis $`(P,Q)`$ has the block
+
+**(L4)**
 
 ```math
 T^{(P,Q)}=
@@ -77,7 +82,6 @@ T^{(P,Q)}=
 -2\Gamma-6\eta&-2(h+c)\\
 2(h-c)&-6\Gamma-2\eta
 \end{pmatrix}.
-\tag{L4}
 ```
 
 The remaining Pauli labels have no offdiagonal transfer entries. The identity has diagonal entry zero; $`IZ,ZI,XX,XY,YX,YY`$ have diagonal entry $`-4(\Gamma+\eta)`$; and $`ZZ`$ has diagonal entry $`-8(\Gamma+\eta)`$.
@@ -88,7 +92,7 @@ Let $`\mathcal D_\lambda`$ denote the single-qubit depolarizing map,
 
 ```math
 \mathcal D_\lambda(X)
-=\lambda X+(1-\lambda)\operatorname{Tr}(X)\frac I2,
+=\lambda X+(1-\lambda)\mathrm{Tr}(X)\frac I2,
 ```
 
 and define the invertible support gauge
@@ -108,6 +112,8 @@ h'+c'=e^{\theta}(h+c).
 
 The diagonal entries remain unchanged. Solving these equations gives the exact identity
 
+**(L5)**
+
 ```math
 \mathcal G_\theta\mathcal L_{h,c}\mathcal G_\theta^{-1}
 =\mathcal L_{h',c'},
@@ -116,17 +122,17 @@ The diagonal entries remain unchanged. Solving these equations gives the exact i
 h'&=h\cosh\theta+c\sinh\theta,\\
 c'&=c\cosh\theta+h\sinh\theta.
 \end{aligned}
-\tag{L5}
 ```
 
 In particular, $`\Gamma`$ and $`\eta`$ do not change, and
 
+**(L6)**
+
 ```math
 (h')^2-(c')^2=h^2-c^2.
-\tag{L6}
 ```
 
-For this family, each reciprocal block estimate is $`\operatorname{sgn}(h)\sqrt{(h^2-c^2)_+}`$. Equation (L6) explains why that estimate is invariant along the family. Equality of this one statistic alone would not establish an operational lower bound. The next section proves equality of the complete accessible distributions.
+For this family, each reciprocal block estimate is $`\mathrm{sgn}(h)\sqrt{(h^2-c^2)_+}`$. Equation (L6) explains why that estimate is invariant along the family. Equality of this one statistic alone would not establish an operational lower bound. The next section proves equality of the complete accessible distributions.
 
 ## 3. Physical preparation and measurement
 
@@ -141,13 +147,14 @@ Choose $`\lambda=e^{-2}`$ and let the prepared state and readout channel of the 
 
 For $`0\le\theta\le1/4`$, the transformed preparation and readout are
 
+**(L7)**
+
 ```math
 \rho'_0=\mathcal G_\theta(\rho_0)
 =\left(\frac{I+\lambda e^{-\theta}Z}{2}\right)^{\otimes2},
 \qquad
 \mathcal E'=\mathcal E\mathcal G_\theta^{-1}
 =\mathcal D_{\lambda e^\theta}^{\otimes2}.
-\tag{L7}
 ```
 
 Both are physical because $`0\lt\lambda e^{-\theta}\le1`$ and $`0\lt\lambda e^\theta\lt1`$. The inverse gauge need not itself be a channel: the composed readout channel in (L7) is a channel, which is the required operational condition.
@@ -183,27 +190,29 @@ e^{t\mathcal L_{h',c'}}
 
 Commutation with every allowed pulse makes adjacent gauge factors cancel, so the entire transformed experiment obeys
 
+**(L8)**
+
 ```math
 \Phi'=\mathcal G_\theta\Phi\mathcal G_\theta^{-1}.
-\tag{L8}
 ```
 
 For any computational-basis outcome $`z`$,
 
+**(L9)**
+
 ```math
 \begin{aligned}
 p'(z)
-&=\operatorname{Tr}\!\left[
+&=\mathrm{Tr}\!\left[
 |z\rangle\langle z|\,
 \mathcal E'\Phi'(\rho'_0)
 \right]\\
-&=\operatorname{Tr}\!\left[
+&=\mathrm{Tr}\!\left[
 |z\rangle\langle z|\,
 \mathcal E\Phi(\rho_0)
 \right]
 =p(z).
 \end{aligned}
-\tag{L9}
 ```
 
 The equality holds for arbitrary allowed pulse choices, arbitrary nonnegative evolution times, and the full outcome distribution. It therefore survives randomized experiment selection. It also survives classical adaptation between repetitions: conditioned on any common history, both models assign the same probability to the next outcome, so induction gives the same joint law of every finite transcript. An estimator's additional classical randomization cannot distinguish the models either.
@@ -224,26 +233,30 @@ r=2\sqrt{\Gamma\eta}\le\frac14,
 
 Choose
 
+**(L10)**
+
 ```math
 c_0=\frac r2,
 \qquad
 \theta=\frac{r}{4(h+r)}.
-\tag{L10}
 ```
 
 Then $`0\lt\theta\le1/4`$. The original generator is physical by (L2). For the transformed cross coefficient, use $`\sinh\theta\le\theta\cosh\theta`$ and $`h\theta\le r/4`$ to obtain
+
+**(L11)**
 
 ```math
 c_1
 =\frac r2\cosh\theta+h\sinh\theta
 \le\frac{3r}{4}\cosh(1/4)
 \lt r.
-\tag{L11}
 ```
 
 Thus the transformed generator is also physical, with a strict positivity margin in each active block. All coefficients remain bounded by one: for example, $`h_1\le\tfrac14\cosh(1/4)+\tfrac18\sinh(1/4)\lt0.3`$.
 
 The Hamiltonian separation satisfies
+
+**(L12)**
 
 ```math
 \begin{aligned}
@@ -252,7 +265,6 @@ g:=h_1-h
 &\ge\frac r2\theta
 =\frac{r^2}{8(h+r)}.
 \end{aligned}
-\tag{L12}
 ```
 
 The two models retain exactly the same diagonal rates and the same $`\Delta_{ZZ}=4r`$. The transformed SPAM in (L7) makes their entire accessible data law identical.
@@ -263,22 +275,24 @@ For the more general visibility choice in Section 3, take $`\theta=\theta_0r/(h+
 
 Consider any estimator $`\widehat h`$ obtained from any allowed finite experiment protocol, with any number of repetitions and any classical adaptation. Let $`\mathbb E_0,\mathbb E_1`$ refer to the two models in Section 5. Their transcript and estimator distributions are identical. The pointwise triangle inequality therefore yields
 
+**(L13)**
+
 ```math
 \max_{i\in\{0,1\}}
 \mathbb E_i|\widehat h-h_i|
 \ge\frac{g}{2}
 \ge\frac{r^2}{16(h+r)}
 \ge\frac{\Delta_{ZZ}^2}{256(h+\Delta_{ZZ})}.
-\tag{L13}
 ```
 
 For a probability statement, the two open intervals of radius $`g/2`$ around $`h_0`$ and $`h_1`$ are disjoint. Hence
+
+**(L14)**
 
 ```math
 \max_{i\in\{0,1\}}
 \Pr_i\!\left(|\widehat h-h_i|\ge\frac g2\right)
 \ge\frac12.
-\tag{L14}
 ```
 
 These bounds remain valid if an estimator is supplied the exact diagonal rates $`\Gamma,\eta`$. The ambiguity lies in how the allowed offdiagonal dissipator, coherent coupling, and unknown SPAM fit together.

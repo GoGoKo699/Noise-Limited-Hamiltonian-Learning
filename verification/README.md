@@ -73,8 +73,8 @@ The derivative estimator interpolates degree-five polynomials at six Chebyshevâ€
 For each randomized experiment, the character-corrected parity is a $`\pm1`$ variable with mean
 
 ```math
-F_{QP}(t)=m_{\operatorname{supp}Q}s_{\operatorname{supp}P}
-\frac{\operatorname{Tr}[Qe^{t\mathcal L}(P)]}{4}.
+F_{QP}(t)=m_{\mathrm{supp}Q}s_{\mathrm{supp}P}
+\frac{\mathrm{Tr}[Qe^{t\mathcal L}(P)]}{4}.
 ```
 
 The code samples the resulting binomial count directly. This is the exact distribution of the aggregated signed observations after averaging the independently randomized Pauli pulses and physical readout outcomes. It compresses their simulation; it does not supply a noiseless expectation or use Gaussian surrogate observations.

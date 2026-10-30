@@ -8,32 +8,35 @@ Use the local-strength contract (2) in the [model](model.md). If an observable i
 
 Starting with a Pauli $`Q`$ of weight at most $`k`$, expand $`(\mathcal L^\dagger)^nQ`$ into ordered local words. At step $`j`$, a nonzero term meets a support of size at most $`k+(j-1)(k-1)\le kj`$. The sum of the norms of all next local terms meeting that support is at most $`Jkj`$. Induction therefore gives
 
+**(1)**
+
 ```math
 \|(\mathcal L^\dagger)^nQ\|_\infty
 \le (Jk)^n n!,
 \qquad n\ge0.
-\tag{1}
 ```
 
 Only trace annihilation, locality and the incident norm bound are used here. Individual local summands need not be completely positive.
 
-For the experimental signal $`F_{QP}(t)=m_Qs_P\,2^{-N}\operatorname{Tr}[Qe^{t\mathcal L}(P)]`$, normalized trace against a Pauli is bounded by the operator norm. Hence
+For the experimental signal $`F_{QP}(t)=m_Qs_P\,2^{-N}\mathrm{Tr}[Qe^{t\mathcal L}(P)]`$, normalized trace against a Pauli is bounded by the operator norm. Hence
+
+**(2)**
 
 ```math
 |F_{QP}(z)|\le\frac1{1-Jk|z|}
 \quad\text{when }Jk|z|\lt1,
 \qquad
 |F'_{QP}(0)|\le D_0:=Jk.
-\tag{2}
 ```
 
 These are size-independent bounds. They do not assume that local reduced dynamics is an autonomous semigroup.
 
 Set $`G=\max\{1,Jk\}`$ and choose the fixed native-time window
 
+**(3)**
+
 ```math
 T=\frac1{4G}.
-\tag{3}
 ```
 
 Under $`t=T(x+1)/2`$, the Bernstein ellipse with parameter $`\rho=2`$ maps into $`|t|\le9T/8`$. Equation (2) bounds the analytic signal there by $`B=2`$. On real nonnegative times the signal is the mean of a signed parity in $`\{-1,1\}`$ and therefore lies in $`[-1,1]`$.
@@ -50,11 +53,12 @@ x_j=\cos(j\pi/m),
 
 Let $`p_m`$ interpolate the rescaled signal at these Chebyshev–Lobatto nodes. Its endpoint derivative is a weighted sum
 
+**(4)**
+
 ```math
 \frac2T p'_m(-1)=\sum_{j=0}^m w_jF(t_j),
 \qquad
 W_m:=\sum_{j=0}^m|w_j|=\frac{2m^2}{T}.
-\tag{4}
 ```
 
 For explicit weights, put $`c_0=c_m=2`$ and $`c_j=1`$ otherwise. The endpoint row of the interpolation differentiation matrix gives
@@ -70,32 +74,35 @@ The products $`w_jT_m(x_j)`$ all have the sign $`(-1)^{m-1}`$, where $`T_m`$ is 
 
 For completeness, analyticity with bound $`B`$ on the parameter-2 ellipse gives Chebyshev coefficients of magnitude at most $`2B2^{-\ell}`$. At the Lobatto nodes, each higher Chebyshev polynomial aliases to one of degree at most $`m`$. Its endpoint derivative and the original derivative differ in magnitude by at most $`2\ell^2`$. Consequently,
 
+**(5)**
+
 ```math
 \left|\frac2T p'_m(-1)-F'(0)\right|
 \le\frac{8B}{T}\sum_{\ell>m}\ell^2 2^{-\ell}
 =\frac{8B}{T}2^{-m}(m^2+4m+6).
-\tag{5}
 ```
 
 Choose $`m`$ so that the last expression is at most $`\tau/2`$. For fixed model parameters this requires $`m=O(\log(2/\tau))`$.
 
-In each repetition, draw $`j`$ with probability $`|w_j|/W_m`$, perform the [signed-parity experiment](estimator.md#1-a-measured-signal-with-one-preparation-and-one-readout-factor) at time $`t_j`$, and record $`W_m\operatorname{sgn}(w_j)Y_j`$. The mean of $`M`$ such records is an unbiased estimate of the interpolating derivative and has range $`[-W_m,W_m]`$. Hoeffding's inequality yields
+In each repetition, draw $`j`$ with probability $`|w_j|/W_m`$, perform the [signed-parity experiment](estimator.md#1-a-measured-signal-with-one-preparation-and-one-readout-factor) at time $`t_j`$, and record $`W_m\mathrm{sgn}(w_j)Y_j`$. The mean of $`M`$ such records is an unbiased estimate of the interpolating derivative and has range $`[-W_m,W_m]`$. Hoeffding's inequality yields
+
+**(6)**
 
 ```math
 \Pr\!\left(
 |\widehat D-\mathbb E\widehat D|\gt\tau/2
 \right)
 \le2\exp\!\left(-\frac{M\tau^2}{8W_m^2}\right).
-\tag{6}
 ```
 
 If $`K`$ is the total number of primitive derivative and baseline coordinates, it suffices to use
+
+**(7)**
 
 ```math
 M=\left\lceil
 \frac{8W_m^2}{\tau^2}\log\frac{2K}{\delta}
 \right\rceil
-\tag{7}
 ```
 
 per global derivative setting. Each baseline is an ordinary zero-time signed-parity mean; $`\lceil2\tau^{-2}\log(2K/\delta)\rceil`$ repetitions per baseline setting suffice. Combining (5), (6), and a union bound gives raw error at most $`\tau`$ on every required coordinate with probability at least $`1-\delta`$.
@@ -112,6 +119,8 @@ The common Chebyshev degree, nodes and sampling probabilities depend only on the
 
 There are $`K=O_{k,\nu}(N)`$ coordinates and $`S_0=O_{k,\nu}(1)`$ global settings. With
 
+**(8)**
+
 ```math
 z_*=r_pr_m,
 \qquad
@@ -119,17 +128,17 @@ z_*=r_pr_m,
 \frac{1/z_*+2Jk/z_*^2}{\sqrt{z_*}},
 \qquad
 \tau=\frac{\epsilon}{4\Lambda L_{\max}},
-\tag{8}
 ```
 
 equations (5)–(8) and the deterministic reconstruction bound prove Theorem 1. The total repetitions are
+
+**(9)**
 
 ```math
 M_{\mathrm{tot}}
 =O_{k,\nu,J,r_p,r_m}\!\left(
 \epsilon^{-2}\log^4(2/\epsilon)\log(2N/\delta)
 \right).
-\tag{9}
 ```
 
 The interpolation, patch coloring and support sums are explicit finite procedures. No global state or process tomography is performed.

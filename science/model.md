@@ -8,13 +8,14 @@ The result has two parts: a constructive, simultaneous learning guarantee and a 
 
 There are $`N`$ qubits. Write $`\mathcal P_N=\{I,X,Y,Z\}^{\otimes N}`$ for the canonical Hermitian Pauli representatives, with no overall minus sign. The projective product $`A\star B`$ discards the phase of $`AB`$. Supports refer to nonidentity tensor factors. The unknown time-independent generator is
 
+**(1)**
+
 ```math
 \mathcal L(\rho)
 =-i\sum_{C\in\mathcal I_h}h_C[C,\rho]
 +\sum_{(A,B)\in\mathcal I_d}\alpha_{AB}
 \left(A\rho B-\frac12\{BA,\rho\}\right),
 \qquad \boldsymbol\alpha\succeq0.
-\tag{1}
 ```
 
 Every index in $`\mathcal I_h`$ and both indices in $`\mathcal I_d`$ are nonidentity Paulis. The Hamiltonian is traceless, its coefficients are real, and $`\alpha_{BA}=\overline{\alpha_{AB}}`$. Equation (1), with these traceless Pauli jump coordinates, fixes the canonical Hamiltonian convention. An identity component of the Hamiltonian has no dynamical effect and is not an estimation target.
@@ -23,12 +24,13 @@ A known patch family $`\mathsf P`$ specifies locality. Each patch contains at mo
 
 For a concrete strength convention, group the canonical terms into local, trace-annihilating summands $`\mathcal L_B`$ supported on allowed patches, assigning each term to one patch that contains its support. Assume a known bound
 
+**(2)**
+
 ```math
 \mathcal L=\sum_B\mathcal L_B,
 \qquad
 \sup_i\sum_{B\ni i}
 \|\mathcal L_B^\dagger\|_{\infty\to\infty}\le J.
-\tag{2}
 ```
 
 The norm is the induced operator norm on observables of the embedded map on the full register, including its identity action on spectator qubits. A bare local induced norm for a non-completely-positive summand need not have this stability under extension. Each summand annihilates trace, so $`\mathcal L_B^\dagger(I)=0`$. The summands need not individually generate completely positive semigroups; the full generator in (1) does. Bounded canonical coefficients, fixed $`k`$ and fixed $`\nu`$ imply a size-independent bound of the form (2): each Pauli left/right multiplication has embedded norm one, so each commutator or dissipator in (1) has embedded norm at most two before multiplication by its coefficient. All constants below may depend on these local parameters, but not on $`N`$.
@@ -41,12 +43,13 @@ Each independent repetition begins with the same unknown state $`\rho_0`$. The a
 
 Preparation and readout errors may be correlated across the register. For every nonempty support $`S`$ of size at most $`k`$, assume known conservative promise bounds $`r_p,r_m\gt0`$ such that
 
+**(3)**
+
 ```math
-s_S:=\operatorname{Tr}(Z_S\rho_0)\ge r_p,
+s_S:=\mathrm{Tr}(Z_S\rho_0)\ge r_p,
 \qquad
-m_S:=2^{-N}\operatorname{Tr}
+m_S:=2^{-N}\mathrm{Tr}
 \left[Z_S\mathcal E^\dagger(Z_S)\right]\ge r_m.
-\tag{3}
 ```
 
 The individual gains $`s_S,m_S`$ remain unknown. Their positive lower bounds fix the sign and prevent loss of all local information; they do not require the global preparation or measurement channel to be close to ideal. The same fixed system and SPAM model is used across repetitions. Drift and memory between repetitions are outside this contract.
@@ -59,13 +62,14 @@ Control gates and time settings are ideal in the stated model. [Resources](resou
 
 For any target coefficient $`h_C`$, define the ordered leakage sum
 
+**(4)**
+
 ```math
 \boxed{
 \Delta_C=
 \sum_{\substack{(A,B)\in\mathcal I_d\\A\star B=C}}
 \sqrt{\alpha_{AA}\alpha_{BB}}.
 }
-\tag{4}
 ```
 
 Both orders of a distinct pair are included. Only structurally allowed pairs enter this definition. Positivity implies $`|\alpha_{AB}|\le\sqrt{\alpha_{AA}\alpha_{BB}}`$, so $`\Delta_C`$ controls every possible offdiagonal dissipative contribution in the product sector of $`C`$. Its summand count is bounded for each target by locality and patch incidence.
@@ -93,23 +97,25 @@ where $`\mathcal F_C`$ is the known family of nonempty exterior supports defined
 
 **Theorem 1 — achievable calibration.** Under (1)–(3), for $`0\lt\epsilon\le1/2`$ in the chosen time units and $`0\lt\delta\lt1`$, there is an explicit estimator which simultaneously satisfies, with probability at least $`1-\delta`$,
 
+**(5)**
+
 ```math
 \boxed{
 |\widehat h_C-h_C|
 \le\epsilon+3L_C\frac{\Delta_C^2}{|h_C|+\Delta_C}
 \quad\text{for every }C\in\mathcal I_h.
 }
-\tag{5}
 ```
 
 Its total experimental repetitions and total unknown-evolution time are at most
+
+**(6)**
 
 ```math
 O_{k,\nu,J,r_p,r_m}\!\left(
 \epsilon^{-2}\log^4(2/\epsilon)
 \log(2N/\delta)
 \right).
-\tag{6}
 ```
 
 Each repetition uses $`O(N)`$ single-qubit gates and returns $`N`$ measured bits. Classical processing is linear in the number of collected bits up to fixed-locality factors and logarithmic precision overhead. These costs remain present when the shot count grows only logarithmically with $`N`$.
@@ -120,11 +126,12 @@ Each repetition uses $`O(N)`$ single-qubit gates and returns $`N`$ measured bits
 
 The [physical lower family](lower_bound.md) uses two qubits, $`C=ZZ`$, and fixed diagonal rates $`\Gamma,\eta`$. It has $`\Delta_{ZZ}=8\sqrt{\Gamma\eta}`$. For a stated constant parameter range and nonzero SPAM uncertainty, it contains two models with exactly the same complete experimental distributions, but different Hamiltonian coefficients. Every estimator, with arbitrarily much data and all permitted controls, obeys
 
+**(7)**
+
 ```math
 \max_{i=0,1}\mathbb E_i|\widehat h-h_i|
 \ge
 \frac{\Delta_{ZZ}^2}{256(h_0+\Delta_{ZZ})}
-\tag{7}
 ```
 
 for the explicit visibility constants used in the construction. For any fixed $`0\lt r_p,r_m\lt1`$, the same scaling holds with a positive constant depending on the visibility allowance. The construction and a corresponding probability statement are proved in the lower-bound page. Perfectly calibrated access is a different limiting case.

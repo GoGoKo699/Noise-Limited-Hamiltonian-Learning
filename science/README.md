@@ -14,3 +14,5 @@ The central question is how accurately an interaction can be learned when prepar
 For the constructive proof, read Steps 1–4 in order. For the information-theoretic obstruction, read Step 1 followed by Step 5. The [related-work account](../references/RELATED_WORK.md) separates inherited tools from the quantitative contribution. The [verification suite](../verification/README.md) tests explicit formulas and finite observations; it supports the proof rather than replacing its general quantifiers.
 
 The common conventions are fixed in [model](model.md): canonical Hermitian Paulis, a traceless Hamiltonian, the dissipator ordering $`A\rho B-\{BA,\rho\}/2`$, ordered leakage pairs, and fixed positive local visibilities. Every theorem uses those conventions.
+
+For a foundations-first route, use the [learning map](../learning/README.md) and [Rivas–Huelga bridge](../learning/rivas_huelga_bridge.md). The scientific pages above remain the authoritative statements and proofs.

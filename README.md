@@ -48,6 +48,12 @@ Start with the [model and exact theorem](science/model.md), then follow the [sci
 
 The [LLM reading guide](llms.txt) maps scientific questions to their authoritative pages.
 
+## Learning route
+
+The [learning map](learning/README.md) connects the open-system foundations to this project's calibration question. It contains [30 milestones](learning/milestones.md), organized from the physical model to the estimator, resource account, and matching ambiguity.
+
+The single educational anchor is Ángel Rivas and Susana F. Huelga, *Open Quantum Systems: An Introduction* (first edition, 2012). The [source-to-project bridge](learning/rivas_huelga_bridge.md) identifies the relevant sections, translates conventions, and supplies the steps from quantum dynamical maps to learning under unknown preparation and readout. It also distinguishes the published book's chapter numbers from the author preprint's section numbers.
+
 ## Access and resources
 
 The generator has a known, bounded-degree local interaction pattern and bounded local strength. Preparation and measurement errors are fixed but unknown and may be correlated across the entire register. Only their local parity visibilities have positive lower bounds. The protocol uses trusted single-qubit gates, native evolution, and final computational-basis readout.
