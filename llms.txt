@@ -1,0 +1,25 @@
+# Noise-Limited Hamiltonian Learning
+
+This repository develops a constructive local Hamiltonian-learning guarantee under unknown fixed state-preparation and measurement noise, and a matching worst-case physical ambiguity near a dissipative positivity boundary.
+
+## Start here
+- README.md: scientific question, principal guarantee, resources, reproduction and scope.
+- science/README.md: ordered proof and interpretation routes.
+
+## Questions and authoritative sources
+- What exactly is trusted, unknown and estimated? science/model.md.
+- What does the ordered noise scale Delta_C mean? science/model.md, Section 3.
+- How do reciprocal experiments cancel separate gains? science/estimator.md, Sections 1–3.
+- Why does the square root retain additive statistical error at zero? science/estimator.md, Section 4.
+- Why is a single transfer block insufficient? science/local_reconstruction.md, Sections 1–2.
+- How are exterior spectator shifts removed with original-locality probes? science/local_reconstruction.md, Sections 3–5.
+- Where do the shot, time, gate and classical costs come from? science/resources.md.
+- What proves the limit for every permitted controlled experiment? science/lower_bound.md, Sections 3–6.
+- What is the physical meaning of the weak/strong crossover? science/interpretation.md.
+- Which ingredients are inherited? references/RELATED_WORK.md and references/references.bib.
+- How can the finite checks and figure be reproduced? verification/README.md.
+
+## Essential distinctions
+The Hamiltonian and Kossakowski matrix use the canonical traceless-Pauli convention. Delta_C sums geometric means over ordered structurally allowed pairs. Its zero condition is sufficient, not a complete boundary classification. The achievable rate is uniform; matching lower sharpness is worst-case over a multi-qubit family, not a claim about every noise pattern. Single-qubit coefficients are already universally learnable in the cited framework. The statistical sample count is an upper bound. The error inequality uses true diagonal rates and is not an empirical confidence-radius theorem. A square root in a weak diagonal rate is not square-root amplification relative to the full dissipator perturbation.
+
+The model allows trusted product-unitary controls, native evolution and final noisy readout, with fixed positive local visibilities. Added calibrated instruments may alter its ambiguity. Finite numerical checks corroborate explicit formulas and sampling behavior; the topic pages contain the proofs of general statements.
