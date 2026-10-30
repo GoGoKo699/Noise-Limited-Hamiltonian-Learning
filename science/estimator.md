@@ -6,7 +6,7 @@ The character-randomization identity used below is inherited from Flammia, Sinha
 
 ## 1. A measured signal with one preparation and one readout factor
 
-Let $`D=2^N`$, and write $`\overline{\operatorname{Tr}}(X)=\operatorname{Tr}(X)/D`$. For a signed Hermitian Pauli $`P`$, let $`S_P=\operatorname{supp}(P)`$. Choose a trusted product Clifford $`U_P`$ satisfying
+Let $`D=2^N`$, and write $`\overline{\mathrm{Tr}}(X)=\mathrm{Tr}(X)/D`$. For a signed Hermitian Pauli $`P`$, let $`S_P=\mathrm{supp}(P)`$. Choose a trusted product Clifford $`U_P`$ satisfying
 
 ```math
 U_P Z_{S_P}U_P^\dagger=P.
@@ -17,10 +17,10 @@ The sign of $`P`$ is included in this choice. A negative signed Pauli is not sup
 Define the positive, support-dependent visibilities
 
 ```math
-s_P:=s_{S_P}=\operatorname{Tr}(Z_{S_P}\rho_0),
+s_P:=s_{S_P}=\mathrm{Tr}(Z_{S_P}\rho_0),
 \qquad
 m_P:=m_{S_P}
-=\overline{\operatorname{Tr}}
+=\overline{\mathrm{Tr}}
 \left[Z_{S_P}\mathcal E^\dagger(Z_{S_P})\right].
 ```
 
@@ -36,10 +36,11 @@ The upper bound on $`m_P`$ follows because $`\mathcal E^\dagger`$ is unital and 
 
 For a projective Pauli $`R`$, define its character by $`RPR=\chi_P(R)P`$, with $`\chi_P(R)\in\{-1,1\}`$. Uniform averaging over all projective $`N`$-qubit Paulis gives, for any operator $`X`$,
 
+**(1)**
+
 ```math
 \mathbb E_R\bigl[\chi_P(R)RXR\bigr]
-=\overline{\operatorname{Tr}}(PX)P.
-\tag{1}
+=\overline{\mathrm{Tr}}(PX)P.
 ```
 
 This is Pauli character orthogonality. It also holds for signed representatives because both occurrences of $`P`$ change sign together.
@@ -73,33 +74,36 @@ Equation (1) gives
 
 Consequently, the bounded recorded random variable has expectation
 
+**(2)**
+
 ```math
 F_{QP}(t)
 =m_Qs_P\,
-\overline{\operatorname{Tr}}
+\overline{\mathrm{Tr}}
 \left[Qe^{t\mathcal L}(P)\right].
-\tag{2}
 ```
 
 This calculation makes no product-noise or independence assumption about qubits within $`\rho_0`$ or $`\mathcal E`$. The random Paulis are implemented as single-qubit gates. The signal uses the native global evolution; no effective reduced semigroup is assumed.
 
 Write
 
+**(3)**
+
 ```math
-T_{QP}=\overline{\operatorname{Tr}}\left[Q\mathcal L(P)\right],
+T_{QP}=\overline{\mathrm{Tr}}\left[Q\mathcal L(P)\right],
 \qquad
 d_{QP}=F'_{QP}(0)=m_Qs_PT_{QP},
 \qquad
 z_P=F_{PP}(0)=m_Ps_P.
-\tag{3}
 ```
 
 Use the same basis conventions in the cross and zero-time experiments. Then
 
+**(4)**
+
 ```math
 -\frac{d_{QP}d_{PQ}}{z_Pz_Q}
 =-T_{QP}T_{PQ}.
-\tag{4}
 ```
 
 The [resource analysis](resources.md) establishes simultaneous additive estimates of these derivatives and baselines from bounded outcomes.
@@ -114,20 +118,22 @@ Q=-iCP.
 
 Both operators are Hermitian, and
 
+**(5)**
+
 ```math
 -i[C,P]=2Q,
 \qquad
 -i[C,Q]=-2P.
-\tag{5}
 ```
 
 For this oriented pair define
+
+**(6)**
 
 ```math
 a=\frac{T_{QP}+T_{PQ}}4,
 \qquad
 b=\frac{T_{QP}-T_{PQ}}4.
-\tag{6}
 ```
 
 Thus $`T_{QP}=2(b+a)`$ and $`T_{PQ}=-2(b-a)`$. The coefficient $`h_C`$ contributes $`a=0`$ and $`b=h_C`$.
@@ -150,58 +156,63 @@ Using the ordered leakage sum over allowed pairs,
 
 the two dissipative transfer corrections are each bounded by $`2\Delta_C`$. Hence every oriented pair used by the estimator satisfies
 
+**(7)**
+
 ```math
 |a|\le\Delta_C,
 \qquad
 |b-h_C|\le\Delta_C.
-\tag{7}
 ```
 
 These bounds refer to the global canonical coefficient $`h_C`$, including when the two Paulis are measured inside a smaller region whose instantaneous Hamiltonian has an exterior contribution.
 
 ## 3. The reciprocal functional
 
-Let $`[u]_+=\max\{u,0\}`$ and $`\operatorname{sgn}(0)=0`$. The ideal reciprocal estimate associated with one pair is
+Let $`[u]_+=\max\{u,0\}`$ and $`\mathrm{sgn}(0)=0`$. The ideal reciprocal estimate associated with one pair is
 
 ```math
 g=
-\frac12\operatorname{sgn}(d_{QP})
+\frac12\mathrm{sgn}(d_{QP})
 \sqrt{\left[-\frac{d_{QP}d_{PQ}}{z_Pz_Q}\right]_+}
 =\phi(b,a),
 ```
 
+**(8)**
+
 ```math
 \phi(b,a):=
-\operatorname{sgn}(b+a)\sqrt{[b^2-a^2]_+}.
-\tag{8}
+\mathrm{sgn}(b+a)\sqrt{[b^2-a^2]_+}.
 ```
 
-When the radicand is positive, $`|b|\gt|a|`$ and $`\operatorname{sgn}(b+a)=\operatorname{sgn}(b)`$. When it is nonpositive, the output is zero. Thus $`\phi`$ is unambiguous even at a zero slope or a vanishing coupling.
+When the radicand is positive, $`|b|\gt|a|`$ and $`\mathrm{sgn}(b+a)=\mathrm{sgn}(b)`$. When it is nonpositive, the output is zero. Thus $`\phi`$ is unambiguous even at a zero slope or a vanishing coupling.
 
 Define the noise modulus
+
+**(9)**
 
 ```math
 \psi_h(D)=\frac{D^2}{|h|+D},
 \qquad
 \psi_0(0)=0.
-\tag{9}
 ```
 
 **Lemma 1 — uniform reciprocal bias.** If $`|a|\le D`$ and $`|b-h|\le D`$, then
 
+**(10)**
+
 ```math
 |\phi(b,a)-b|\le3\psi_h(D).
-\tag{10}
 ```
 
 **Proof.** First, $`|\phi(b,a)-b|\le|a|`$ for all real $`a,b`$. If $`|b|\le|a|`$, the left side is $`|b|`$. Otherwise,
+
+**(11)**
 
 ```math
 |\phi(b,a)-b|
 =|b|-\sqrt{b^2-a^2}
 =\frac{a^2}{|b|+\sqrt{b^2-a^2}}
 \le|a|.
-\tag{11}
 ```
 
 If $`D=0`$, then $`a=0`$ and $`\phi(b,0)=b`$. For $`D\gt0`$ and $`|h|\le2D`$, the first bound gives
@@ -228,18 +239,21 @@ The square root is not uniformly Lipschitz as a function of two arbitrary slopes
 
 Suppose every raw derivative and zero-time estimate in one reciprocal pair obeys
 
+**(12)**
+
 ```math
 |\widehat d_{QP}-d_{QP}|,
 |\widehat d_{PQ}-d_{PQ}|,
 |\widehat z_P-z_P|,
 |\widehat z_Q-z_Q|
 \le\tau.
-\tag{12}
 ```
 
 Let $`z_*=r_pr_m`$, and clip each empirical baseline to the interval $`[z_*/2,1]`$. Denote the clipped values by $`\widetilde z_P,\widetilde z_Q`$. Since each true baseline lies in $`[z_*,1]`$, clipping preserves the additive error bound in (12).
 
 The implemented normalized coordinates and pair estimator are
+
+**(13)**
 
 ```math
 \widehat x=
@@ -249,9 +263,8 @@ The implemented normalized coordinates and pair estimator are
 -\frac{\widehat d_{PQ}}{2\sqrt{\widetilde z_P\widetilde z_Q}},
 \qquad
 \widehat g=
-\operatorname{sgn}(\widehat x)
+\mathrm{sgn}(\widehat x)
 \sqrt{[\widehat x\widehat y]_+}.
-\tag{13}
 ```
 
 The estimator uses neither $`\Delta_C`$ nor an estimate of its diagonal rates.
@@ -266,15 +279,18 @@ y=-\frac{d_{PQ}}{2\sqrt{z_Pz_Q}}
 
 satisfy
 
+**(14)**
+
 ```math
 |\widehat x-x|,|\widehat y-y|
 \le K_0\tau,
 \qquad
 K_0=\frac1{z_*}+\frac{2D_0}{z_*^2}.
-\tag{14}
 ```
 
 Using (3) and (6), these exact coordinates can be written as
+
+**(15)**
 
 ```math
 x=\kappa(b+a),
@@ -284,7 +300,6 @@ y=\kappa^{-1}(b-a),
 \kappa=
 \sqrt{\frac{m_Qs_P}{m_Ps_Q}}
 \in[\sqrt{z_*},z_*^{-1/2}].
-\tag{15}
 ```
 
 The factor $`\kappa`$ is unknown and is used only in the proof. Define fictitious perturbed block variables
@@ -299,12 +314,13 @@ The factor $`\kappa`$ is unknown and is used only in the proof. Define fictitiou
 
 Then $`\widehat g=\phi(\widetilde b,\widetilde a)`$, and
 
+**(16)**
+
 ```math
 |\widetilde b-b|,|\widetilde a-a|
 \le\Lambda\tau,
 \qquad
 \Lambda=K_0z_*^{-1/2}.
-\tag{16}
 ```
 
 Applying Lemma 1 with $`D=\Delta_C+\Lambda\tau`$ is legitimate because both inequalities in (7) remain valid with that enlarged $`D`$. Moreover,
@@ -317,17 +333,18 @@ Applying Lemma 1 with $`D=\Delta_C+\Lambda\tau`$ is legitimate because both ineq
 
 whenever the displayed derivative is defined, and $`\psi_0(D)=D`$. Thus $`\psi_h`$ is 1-Lipschitz on the nonnegative axis. Combining this fact with (16) gives the finite-data bound
 
+**(17)**
+
 ```math
 |\widehat g-b|
 \le3\psi_{h_C}(\Delta_C)+4\Lambda\tau.
-\tag{17}
 ```
 
 Equation (17) includes $`h_C=0`$, $`\Delta_C=0`$, sign changes, and $`b^2=a^2`$. It requires no minimum nonzero coupling or externally supplied sign.
 
 ## 5. From pair estimates to the Hamiltonian
 
-For a region $`W`$ containing $`\operatorname{supp}(C)`$, partition the anticommuting Pauli labels on $`W`$ into unordered pairs and orient each pair as in (5). There are $`4^{|W|}/4`$ such pairs. Let $`f_W`$ be the coefficient of $`C`$ in the instantaneous reduced generator. The exact projection identity proved in [local reconstruction](local_reconstruction.md) is
+For a region $`W`$ containing $`\mathrm{supp}(C)`$, partition the anticommuting Pauli labels on $`W`$ into unordered pairs and orient each pair as in (5). There are $`4^{|W|}/4`$ such pairs. Let $`f_W`$ be the coefficient of $`C`$ in the instantaneous reduced generator. The exact projection identity proved in [local reconstruction](local_reconstruction.md) is
 
 ```math
 f_W=
@@ -336,13 +353,16 @@ f_W=
 
 Define $`\widehat f_W`$ by replacing every $`b_e`$ in this average with (13). On the simultaneous primitive-accuracy event (12), equation (17) implies
 
+**(18)**
+
 ```math
 |\widehat f_W-f_W|
 \le3\psi_{h_C}(\Delta_C)+4\Lambda\tau.
-\tag{18}
 ```
 
 The final support correction is a known linear combination of these region estimates whose total absolute weight is at most $`L_C`$, with $`L_C`$ bounded by a constant depending on locality and degree. It follows that
+
+**(19)**
 
 ```math
 |\widehat h_C-h_C|
@@ -351,7 +371,6 @@ The final support correction is a known linear combination of these region estim
 3\frac{\Delta_C^2}{|h_C|+\Delta_C}
 +4\Lambda\tau
 \right].
-\tag{19}
 ```
 
 Choosing the primitive accuracy proportional to the desired statistical precision yields the theorem in [model](model.md). The resource analysis supplies the probability and repetition count for the simultaneous event. The deterministic argument here does not require independence between different estimated coefficients within a shot.

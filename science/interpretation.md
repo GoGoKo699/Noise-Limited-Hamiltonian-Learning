@@ -28,7 +28,7 @@ T_{QP}=2(b+a),
 The dissipative part can supply a symmetric component $`a`$ and can shift the antisymmetric component $`b`$. The gain-free estimate is
 
 ```math
-\phi(b,a)=\operatorname{sgn}(b+a)\sqrt{(b^2-a^2)_+}.
+\phi(b,a)=\mathrm{sgn}(b+a)\sqrt{(b^2-a^2)_+}.
 ```
 
 When the interaction is resolved relative to the relevant noise, both slopes carry a consistent sign and
